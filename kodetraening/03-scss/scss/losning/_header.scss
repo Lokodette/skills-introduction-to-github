@@ -1,0 +1,38 @@
+// Løsning: opgave 2, 3 og 6
+@use "../variabler" as *;
+@use "mixins" as *;
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    margin: 0;
+  }
+
+  nav ul {
+    display: flex;
+    gap: $afstand;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+
+    &:hover,
+    &:focus-visible {
+      color: $accent;
+    }
+  }
+
+  @include mobil {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

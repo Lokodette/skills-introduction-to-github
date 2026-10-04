@@ -1,0 +1,20 @@
+// Mixins = genbrugelige "pakker" af CSS.
+// Brug dem med @include navn;
+
+@use "variabler" as *;
+
+// Eksempel: centrer indhold med flexbox
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Eksempel: media query som mixin (opgave 6)
+@mixin mobil {
+  @media (max-width: $mobil-bredde) {
+    @content; // her indsættes det, du skriver mellem { } når du bruger den
+  }
+}
+
+// TODO opgave 5: Lav @mixin kort($skygge) { ... }

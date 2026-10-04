@@ -1,0 +1,22 @@
+// Løsning: mixins (inkl. opgave 5)
+@use "../variabler" as *;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin mobil {
+  @media (max-width: $mobil-bredde) {
+    @content;
+  }
+}
+
+// Opgave 5
+@mixin kort($skygge) {
+  background: $flade;
+  border-radius: $radius;
+  overflow: hidden;
+  box-shadow: 0 calc($skygge / 4) $skygge rgb(0 0 0 / 0.1);
+}

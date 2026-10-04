@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mit Navn · Portfolio</title>
+</head>
+<body>
+
+  <header>
+    <h1>Mit Navn</h1>
+    <nav>
+      <ul>
+        <li><a href="#projekter">Projekter</a></li>
+        <li><a href="#om">Om mig</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="projekter">
+      <h2>Projekter</h2>
+
+      <article class="projekt">
+        <img src="https://picsum.photos/400/300?random=1" alt="Plakat i stærke farver til en lokal musikfestival">
+        <h3>Festivalplakat</h3>
+        <p>Plakat og social media-pakke til Byens Musikfestival.</p>
+        <ul class="tags">
+          <li>Grafisk design</li>
+          <li>Illustrator</li>
+        </ul>
+      </article>
+
+      <article class="projekt">
+        <img src="https://picsum.photos/400/300?random=2" alt="Skærmbilleder af en app til at booke cykler">
+        <h3>Cykel-app</h3>
+        <p>UX-forløb og prototype til en app, hvor man booker delecykler.</p>
+        <ul class="tags">
+          <li>UX</li>
+          <li>Figma</li>
+        </ul>
+      </article>
+
+      <article class="projekt">
+        <img src="https://picsum.photos/400/300?random=3" alt="Forsiden af en hjemmeside for en café">
+        <h3>Café-website</h3>
+        <p>Responsivt website bygget i HTML og CSS.</p>
+        <ul class="tags">
+          <li>Web</li>
+          <li>HTML</li>
+          <li>CSS</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="om">
+      <h2>Om mig</h2>
+      <p>Jeg læser til multimediedesigner og elsker at kombinere visuelt design med kode.</p>
+      <p>Lige nu lærer jeg HTML, CSS, SCSS og JavaScript.</p>
+    </section>
+
+    <section id="kontakt">
+      <h2>Kontakt</h2>
+      <form>
+        <label for="navn">Navn</label>
+        <input type="text" id="navn" name="navn" required>
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="besked">Besked</label>
+        <textarea id="besked" name="besked" rows="5"></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Mit Navn</p>
+  </footer>
+
+</body>
+</html>

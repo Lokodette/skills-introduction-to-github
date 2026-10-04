@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio · JavaScript</title>
+  <!-- Vi genbruger CSS-løsningen fra modul 02 -->
+  <link rel="stylesheet" href="../02-css/losning/style.css">
+  <style>
+    .værktøjslinje { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .værktøjslinje button { background: transparent; color: inherit; border: 2px solid var(--farve-accent); }
+    .værktøjslinje button.aktiv { background: var(--farve-accent); color: #fff; }
+    .værktøjslinje input { flex: 1; min-width: 200px; }
+    #galleri { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: var(--afstand); }
+    .projekt footer { display: flex; justify-content: space-between; align-items: center; padding: 0 1rem 1rem; }
+  </style>
+  <!-- defer = vent med at køre JS til HTML'en er læst -->
+  <script src="data.js" defer></script>
+  <script src="script.js" defer></script>
+  <!-- Vil du se løsningen? Skift script.js til losning/script.js -->
+</head>
+<body>
+
+  <header>
+    <h1>Mit Portfolio</h1>
+    <p id="antal">Indlæser projekter…</p>
+  </header>
+
+  <main>
+    <div class="værktøjslinje">
+      <button class="aktiv" data-kategori="alle">Alle</button>
+      <button data-kategori="Grafisk">Grafisk</button>
+      <button data-kategori="UX">UX</button>
+      <button data-kategori="Web">Web</button>
+      <input type="search" id="søg" placeholder="Søg i titler…" aria-label="Søg i titler">
+    </div>
+
+    <!-- Her indsætter JavaScript projekt-kortene -->
+    <section id="galleri"></section>
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+// Grundlæggende stil for hele siden.
+@use "variabler" as *;
+
+// TODO opgave 4:
+// - box-sizing: border-box på alt
+// - body: margin 0, font, line-height, baggrund ($baggrund) og tekstfarve ($tekst)
+// - img: max-width 100%, display block
+// - main, header, footer: max-width $max-bredde, centreret, padding $afstand

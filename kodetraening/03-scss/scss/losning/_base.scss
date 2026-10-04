@@ -1,0 +1,29 @@
+// Løsning: opgave 4
+@use "../variabler" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  background: $baggrund;
+  color: $tekst;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+main,
+header,
+footer {
+  max-width: $max-bredde;
+  margin: 0 auto;
+  padding: $afstand;
+}

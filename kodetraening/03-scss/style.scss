@@ -1,0 +1,14 @@
+// =========================================
+// 03 · SCSS – hovedfil
+// Denne fil samler alle partials.
+// Kompilér: npx sass style.scss style.css --watch
+// =========================================
+
+@use "scss/base";
+@use "scss/header";
+@use "scss/projekt";
+
+// Vil du se løsningen? Byt de tre linjer ovenfor ud med:
+// @use "scss/losning/base";
+// @use "scss/losning/header";
+// @use "scss/losning/projekt";
