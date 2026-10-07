@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo · mini-React</title>
+  <style>
+    :root { --baggrund: #f7f5f2; --flade: #fff; --tekst: #1f1f24; --dæmpet: #6b6b75; --accent: #e4572e; }
+    @media (prefers-color-scheme: dark) {
+      :root { --baggrund: #16161a; --flade: #232329; --tekst: #f2f2f2; --dæmpet: #a0a0aa; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, sans-serif; background: var(--baggrund); color: var(--tekst); }
+    main { max-width: 520px; margin: 0 auto; padding: 2rem 1rem; }
+    form, .filtre, .bund { display: flex; gap: .5rem; flex-wrap: wrap; }
+    input[type="text"] { flex: 1; font: inherit; padding: .6rem; border-radius: 8px; border: 2px solid #ccc; }
+    button { font: inherit; padding: .5rem .9rem; border-radius: 8px; border: 2px solid var(--accent); background: transparent; color: inherit; cursor: pointer; }
+    button.aktiv, button[type="submit"] { background: var(--accent); color: #fff; }
+    button:disabled { opacity: .4; cursor: default; }
+    ul { list-style: none; padding: 0; }
+    li { display: flex; align-items: center; gap: .75rem; background: var(--flade); padding: .6rem .9rem; border-radius: 10px; margin-bottom: .5rem; }
+    li span { flex: 1; }
+    li.færdig span { text-decoration: line-through; color: var(--dæmpet); }
+    li button { border: none; padding: .2rem .5rem; }
+    .filtre { margin: 1rem 0 .5rem; }
+    .bund { justify-content: space-between; align-items: center; color: var(--dæmpet); margin-top: 1rem; }
+    .advarsel { color: var(--accent); min-height: 1.5em; }
+  </style>
+  <script type="module" src="app.js"></script>
+  <!-- Vil du se løsningen? Skift til: src="losning/app.js" -->
+</head>
+<body>
+  <main>
+    <h1>Mine todos</h1>
+    <!-- Alt indhold herunder tegnes af render() i app.js -->
+    <div id="app"></div>
+  </main>
+</body>
+</html>

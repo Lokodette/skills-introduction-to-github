@@ -1,0 +1,9 @@
+{
+  "name": "react-prep",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node test.js",
+    "losning": "node test.js losning"
+  }
+}

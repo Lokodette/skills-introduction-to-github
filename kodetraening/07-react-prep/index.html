@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React-forberedelse · Tests</title>
+  <style>
+    :root {
+      --baggrund: #f7f5f2;
+      --flade: #ffffff;
+      --tekst: #1f1f24;
+      --dæmpet: #6b6b75;
+      --ok: #2a9d8f;
+      --todo: #c98a00;
+      --fejl: #d1495b;
+      --accent: #e4572e;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --baggrund: #16161a; --flade: #232329; --tekst: #f2f2f2; --dæmpet: #a0a0aa; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, sans-serif; line-height: 1.5; background: var(--baggrund); color: var(--tekst); }
+    main { max-width: 860px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+    h1 { margin: 0 0 .25rem; }
+    .undertitel { color: var(--dæmpet); margin: 0 0 1.5rem; }
+    .undertitel a { color: var(--accent); }
+    .fremskridt { height: 12px; background: var(--flade); border-radius: 999px; overflow: hidden; margin-bottom: .5rem; }
+    .fremskridt div { height: 100%; background: var(--ok); width: 0; transition: width .4s; }
+    .suite { background: var(--flade); border-radius: 12px; padding: 1rem 1.25rem; margin-top: 1rem; box-shadow: 0 1px 4px rgb(0 0 0 / .08); }
+    .suite h2 { font-size: 1.05rem; margin: 0; display: flex; justify-content: space-between; gap: 1rem; }
+    .suite h2 small { color: var(--dæmpet); font-weight: 400; white-space: nowrap; }
+    .suite code { color: var(--dæmpet); font-size: .8rem; }
+    ul { list-style: none; padding: 0; margin: .5rem 0 0; }
+    li { padding: .35rem 0; border-top: 1px solid rgb(127 127 127 / .15); }
+    .besked { display: block; font-size: .85rem; margin-left: 1.6rem; }
+    .ok .besked { display: none; }
+    .todo .besked { color: var(--todo); }
+    .fejl .besked { color: var(--fejl); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>React-forberedelse</h1>
+    <p class="undertitel" id="undertitel">Kører tests…</p>
+    <div class="fremskridt"><div id="bar"></div></div>
+    <p id="total"></p>
+    <div id="resultater"></div>
+  </main>
+
+  <script type="module">
+    import { kørAlle } from "./tjek.js";
+
+    const losning = new URLSearchParams(location.search).has("losning");
+    const ikon = { ok: "✅", todo: "⏳", fejl: "❌" };
+    const escape = (tekst) => tekst.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+
+    document.querySelector("#undertitel").innerHTML = losning
+      ? 'Viser resultatet for <b>løsningerne</b>. <a href="?">Tilbage til dine opgaver</a>'
+      : 'Rediger filerne i <code>opgaver/</code>, gem, og genindlæs siden. <a href="?losning">Se løsningernes resultat</a>';
+
+    const resultater = await kørAlle({ losning });
+    const alle = resultater.flatMap((s) => s.tests);
+    const ok = alle.filter((t) => t.status === "ok").length;
+
+    document.querySelector("#bar").style.width = `${(ok / alle.length) * 100}%`;
+    document.querySelector("#total").textContent = `${ok} af ${alle.length} tests bestået ${ok === alle.length ? "🎉" : ""}`;
+
+    // Bemærk: map + join – præcis det du øver i opgave 01!
+    document.querySelector("#resultater").innerHTML = resultater
+      .map(({ titel, fil, tests }) => {
+        const antalOk = tests.filter((t) => t.status === "ok").length;
+        const punkter = tests
+          .map(({ navn, status, besked }) => `
+            <li class="${status}">${ikon[status]} ${escape(navn)}
+              <span class="besked">${escape(besked)}</span>
+            </li>`)
+          .join("");
+        return `
+          <section class="suite">
+            <h2>${titel} <small>${antalOk} / ${tests.length}</small></h2>
+            <code>${losning ? "losning" : "opgaver"}/${fil}</code>
+            <ul>${punkter}</ul>
+          </section>`;
+      })
+      .join("");
+  </script>
+</body>
+</html>

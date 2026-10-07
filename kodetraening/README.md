@@ -11,6 +11,7 @@ et lille **portfolio-galleri**, hvor du viser dine projekter. Hvert modul tilfø
 | 04 | [OOUX](04-ooux/opgaver.md) | Tænk i *objekter* før du designer: ORCA-metoden | 1–2 t |
 | 05 | [JavaScript](05-javascript/opgaver.md) | Variabler, funktioner, arrays, DOM, events, filter | 3 t |
 | 06 | [OOP](06-oop/opgaver.md) | `class`, `constructor`, metoder, arv (`extends`) | 2–3 t |
+| 07 | [React-forberedelse](07-react-prep/README.md) | map/filter/find, destructuring, spread, moduler, **immutability** – med automatiske tests | 8–10 t |
 
 ## Sådan arbejder du
 
